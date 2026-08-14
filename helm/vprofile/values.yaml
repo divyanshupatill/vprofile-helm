@@ -1,0 +1,54 @@
+app:
+  image: vprocontainer/vprofile
+  tag: latest
+  replicas: 1
+  containerPort: 8080
+  servicePort: 8080
+  defaultUser: appuser
+
+db:
+  image: vprocontainer/vprodb
+  tag: latest
+  replicas: 1
+  containerPort: 3306
+  servicePort: 3306
+  storageClass: gp2
+  storageSize: 3Gi
+  defaultUser: root
+
+memcached:
+  image: memcached
+  tag: latest
+  replicas: 1
+  containerPort: 11211
+  servicePort: 11211
+  defaultUser: memcached
+
+rabbitmq:
+  image: rabbitmq
+  tag: latest
+  replicas: 1
+  containerPort: 5672
+  servicePort: 5672
+  defaultUser: guest
+
+initcontainers:
+  image: busybox
+  tag: latest
+  enabled: true
+
+ingress:
+  enabled: true
+  host: kubernetes.patilinfotech.codes
+  servicePort: 8080
+
+secrets:
+  dbPass: vprodbpass
+  rmqPass: guest
+
+dockerregistry:
+  enabled: false
+  server: docker.io
+  username: ""
+  password: ""
+  email: ""
