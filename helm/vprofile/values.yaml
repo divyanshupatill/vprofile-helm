@@ -1,6 +1,6 @@
 app:
   image: 093468663097.dkr.ecr.us-east-1.amazonaws.com/vprofile-app69
-  tag: 6f2713635e1b33c9f461d31e2730e0eb5097c41d
+  tag: 1e6681d0f1a0372820ac328764599bea6131ec9a
   replicas: 1
   containerPort: 8080
   servicePort: 8080
