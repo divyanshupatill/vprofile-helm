@@ -1,11 +1,10 @@
 app:
-  image: vprocontainer/vprofile
-  tag: latest
+  image: 093468663097.dkr.ecr.us-east-1.amazonaws.com/vprofile-app69
+  tag: 6f2713635e1b33c9f461d31e2730e0eb5097c41d
   replicas: 1
   containerPort: 8080
   servicePort: 8080
   defaultUser: appuser
-
 db:
   image: vprocontainer/vprodb
   tag: latest
@@ -15,7 +14,6 @@ db:
   storageClass: gp2
   storageSize: 3Gi
   defaultUser: root
-
 memcached:
   image: memcached
   tag: latest
@@ -23,7 +21,6 @@ memcached:
   containerPort: 11211
   servicePort: 11211
   defaultUser: memcached
-
 rabbitmq:
   image: rabbitmq
   tag: latest
@@ -31,21 +28,17 @@ rabbitmq:
   containerPort: 5672
   servicePort: 5672
   defaultUser: guest
-
 initcontainers:
   image: busybox
   tag: latest
   enabled: true
-
 ingress:
   enabled: true
   host: kubernetes.patilinfotech.codes
   servicePort: 8080
-
 secrets:
   dbPass: vprodbpass
   rmqPass: guest
-
 dockerregistry:
   enabled: false
   server: docker.io
